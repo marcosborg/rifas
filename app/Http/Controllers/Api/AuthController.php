@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Laravel\Sanctum\PersonalAccessToken;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -60,12 +61,24 @@ class AuthController extends Controller
         ]);
     }
 
-    public function user(Request $request) {
+    public function user(Request $request)
+    {
 
         $bearerToken = $request->bearerToken();
         $token = PersonalAccessToken::findToken($bearerToken);
         $user = $token->tokenable;
         return $user;
 
+    }
+
+    public function updateUser(Request $request)
+    {
+        $bearerToken = $request->bearerToken();
+        $token = PersonalAccessToken::findToken($bearerToken);
+        $user = $token->tokenable;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->save();
+        return $user;
     }
 }
