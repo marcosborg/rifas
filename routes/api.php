@@ -1,6 +1,24 @@
 <?php
 
+Route::post('register', 'Api\AuthController@register');
+Route::post('login', 'Api\AuthController@login');
+
+Route::middleware('auth:sanctum')->prefix('v1')->group(function () {
+    Route::get('user', 'Api\AuthController@user');
+    Route::get('getActiveGames', 'Api\GamesController@getActiveGames');
+    Route::get('getStarsGame/{id}', 'Api\GamesController@getStarsGame');
+    Route::get('checkStars/{id}/{star}', 'Api\GamesController@checkStars');
+    Route::get('saveStars/{id}/{star1}/{star2}', 'Api\GamesController@saveStars');
+    Route::get('checkCart', 'Api\GamesController@checkCart');
+    Route::get('deleteStarItem/{id}', 'Api\GamesController@deleteStarItem');
+    Route::get('deleteAllFromCart', 'Api\GamesController@deleteAllFromCart');
+    Route::get('getEntityCategories', 'Api\GamesController@getEntityCategories');
+    Route::get('getEntitySubCategories/{id}', 'Api\GamesController@getEntitySubCategories');
+    Route::get('getEntities/{id}', 'Api\GamesController@getEntities');
+});
+
 Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', 'middleware' => ['auth:sanctum']], function () {
+
     // Users
     Route::apiResource('users', 'UsersApiController');
 

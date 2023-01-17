@@ -34,6 +34,17 @@
                 <span class="help-block">{{ trans('cruds.starPlay.fields.star_helper') }}</span>
             </div>
             <div class="form-group">
+                <div class="form-check {{ $errors->has('payed') ? 'is-invalid' : '' }}">
+                    <input type="hidden" name="payed" value="0">
+                    <input class="form-check-input" type="checkbox" name="payed" id="payed" value="1" {{ old('payed', 0) == 1 ? 'checked' : '' }}>
+                    <label class="form-check-label" for="payed">{{ trans('cruds.starPlay.fields.payed') }}</label>
+                </div>
+                @if($errors->has('payed'))
+                    <span class="text-danger">{{ $errors->first('payed') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.starPlay.fields.payed_helper') }}</span>
+            </div>
+            <div class="form-group">
                 <button class="btn btn-danger" type="submit">
                     {{ trans('global.save') }}
                 </button>

@@ -39,6 +39,14 @@
                             {{ $starPlay->star->name ?? '' }}
                         </td>
                     </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.starPlay.fields.payed') }}
+                        </th>
+                        <td>
+                            <input type="checkbox" disabled="disabled" {{ $starPlay->payed ? 'checked' : '' }}>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <div class="form-group">

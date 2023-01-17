@@ -68,8 +68,11 @@ class StarPlaysController extends Controller
             $table->editColumn('star.limit', function ($row) {
                 return $row->star ? (is_string($row->star) ? $row->star : $row->star->limit) : '';
             });
+            $table->editColumn('payed', function ($row) {
+                return '<input type="checkbox" disabled ' . ($row->payed ? 'checked' : null) . '>';
+            });
 
-            $table->rawColumns(['actions', 'placeholder', 'user', 'star']);
+            $table->rawColumns(['actions', 'placeholder', 'user', 'star', 'payed']);
 
             return $table->make(true);
         }

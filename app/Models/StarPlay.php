@@ -23,6 +23,7 @@ class StarPlay extends Model
     protected $fillable = [
         'user_id',
         'star_id',
+        'payed',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -42,4 +43,11 @@ class StarPlay extends Model
     {
         return $date->format('Y-m-d H:i:s');
     }
+
+    public function plays()
+    {
+        return $this->hasMany(Play::class, 'play', 'id');
+    }
+
+    
 }

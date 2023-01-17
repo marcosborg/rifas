@@ -46,6 +46,9 @@
                         {{ trans('cruds.star.fields.limit') }}
                     </th>
                     <th>
+                        {{ trans('cruds.starPlay.fields.payed') }}
+                    </th>
+                    <th>
                         &nbsp;
                     </th>
                 </tr>
@@ -109,6 +112,7 @@
 { data: 'star.end_date', name: 'star.end_date' },
 { data: 'star.donation', name: 'star.donation' },
 { data: 'star.limit', name: 'star.limit' },
+{ data: 'payed', name: 'payed' },
 { data: 'actions', name: '{{ trans('global.actions') }}' }
     ],
     orderCellsTop: true,

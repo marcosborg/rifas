@@ -4,6 +4,7 @@ namespace App\Models;
 
 use \DateTimeInterface;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Factories\BelongsToRelationship;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -69,4 +70,10 @@ class Star extends Model
     {
         return $date->format('Y-m-d H:i:s');
     }
+
+    public function starPlays()
+    {
+        return $this->hasMany(StarPlay::class, 'star_id', 'id');
+    }
+
 }
