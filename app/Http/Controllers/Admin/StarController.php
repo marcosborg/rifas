@@ -67,6 +67,12 @@ class StarController extends Controller
 
                 return implode(' ', $labels);
             });
+            $table->editColumn('star_1', function ($row) {
+                return $row->star_1 ? $row->star_1 : '';
+            });
+            $table->editColumn('star_2', function ($row) {
+                return $row->star_2 ? $row->star_2 : '';
+            });
 
             $table->rawColumns(['actions', 'placeholder', 'award', 'benefectors']);
 

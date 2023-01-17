@@ -164,4 +164,9 @@ class GamesController extends Controller
     {
         return Entity::where('sub_category_id', $request->id)->get();
     }
+
+    public function lastGames(Request $request)
+    {
+        return Star::with('award')->get();
+    }
 }

@@ -46,6 +46,12 @@
                         {{ trans('cruds.star.fields.benefectors') }}
                     </th>
                     <th>
+                        {{ trans('cruds.star.fields.star_1') }}
+                    </th>
+                    <th>
+                        {{ trans('cruds.star.fields.star_2') }}
+                    </th>
+                    <th>
                         &nbsp;
                     </th>
                 </tr>
@@ -109,6 +115,8 @@
 { data: 'limit', name: 'limit' },
 { data: 'award_name', name: 'award.name' },
 { data: 'benefectors', name: 'benefectors.name' },
+{ data: 'star_1', name: 'star_1' },
+{ data: 'star_2', name: 'star_2' },
 { data: 'actions', name: '{{ trans('global.actions') }}' }
     ],
     orderCellsTop: true,

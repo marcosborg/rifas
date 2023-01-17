@@ -81,6 +81,22 @@
                             @endforeach
                         </td>
                     </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.star.fields.star_1') }}
+                        </th>
+                        <td>
+                            {{ $star->star_1 }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.star.fields.star_2') }}
+                        </th>
+                        <td>
+                            {{ $star->star_2 }}
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <div class="form-group">

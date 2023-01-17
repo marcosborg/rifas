@@ -31,6 +31,8 @@ class Star extends Model
         'donation',
         'limit',
         'award_id',
+        'star_1',
+        'star_2',
         'created_at',
         'updated_at',
         'deleted_at',

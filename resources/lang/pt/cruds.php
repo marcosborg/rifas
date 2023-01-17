@@ -91,6 +91,10 @@ return [
             'award_helper'       => ' ',
             'benefectors'        => 'Benfeitores',
             'benefectors_helper' => ' ',
+            'star_1'             => 'Estrela 1',
+            'star_1_helper'      => ' ',
+            'star_2'             => 'Estrela 2',
+            'star_2_helper'      => ' ',
         ],
     ],
     'contentManagement' => [

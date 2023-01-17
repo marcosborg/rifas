@@ -50,6 +50,18 @@ class StoreStarRequest extends FormRequest
                 'required',
                 'array',
             ],
+            'star_1' => [
+                'nullable',
+                'integer',
+                'min:-2147483648',
+                'max:2147483647',
+            ],
+            'star_2' => [
+                'nullable',
+                'integer',
+                'min:-2147483648',
+                'max:2147483647',
+            ],
         ];
     }
 }

@@ -79,6 +79,22 @@
                 <span class="help-block">{{ trans('cruds.star.fields.benefectors_helper') }}</span>
             </div>
             <div class="form-group">
+                <label for="star_1">{{ trans('cruds.star.fields.star_1') }}</label>
+                <input class="form-control {{ $errors->has('star_1') ? 'is-invalid' : '' }}" type="number" name="star_1" id="star_1" value="{{ old('star_1', $star->star_1) }}" step="1">
+                @if($errors->has('star_1'))
+                    <span class="text-danger">{{ $errors->first('star_1') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.star.fields.star_1_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label for="star_2">{{ trans('cruds.star.fields.star_2') }}</label>
+                <input class="form-control {{ $errors->has('star_2') ? 'is-invalid' : '' }}" type="number" name="star_2" id="star_2" value="{{ old('star_2', $star->star_2) }}" step="1">
+                @if($errors->has('star_2'))
+                    <span class="text-danger">{{ $errors->first('star_2') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.star.fields.star_2_helper') }}</span>
+            </div>
+            <div class="form-group">
                 <button class="btn btn-danger" type="submit">
                     {{ trans('global.save') }}
                 </button>
