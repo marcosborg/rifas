@@ -17,6 +17,8 @@ Route::middleware('auth:sanctum')->prefix('v1')->group(function () {
     Route::get('getEntities/{id}', 'Api\GamesController@getEntities');
     Route::post('updateUser', 'Api\AuthController@updateUser');
     Route::get('lastGames', 'Api\GamesController@lastGames');
+    Route::get('getNumbersGame/{id}', 'Api\GamesController@getNumbersGame');
+    Route::post('saveNumbers', 'Api\GamesController@saveNumbers');
 });
 
 Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', 'middleware' => ['auth:sanctum']], function () {

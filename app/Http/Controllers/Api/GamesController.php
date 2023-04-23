@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Number;
+use App\Models\NumberPlay;
 use App\Models\Play;
 use App\Models\Star;
 use App\Models\StarPlay;
@@ -121,6 +122,20 @@ class GamesController extends Controller
             })
             ->get();
 
+        $numberPlays = NumberPlay::where([
+            'user_id' => $user->id,
+            'payed' => false,
+        ])
+            ->with([
+                'plays',
+                'number.award'
+            ])
+            ->whereHas('number', function (Builder $query) use ($now) {
+                $query->where('start_date', '<=', $now);
+                $query->where('end_date', '>=', $now);
+            })
+            ->get();
+
         $total = 0;
 
         foreach ($starPlays as $starPlay) {
@@ -128,8 +143,14 @@ class GamesController extends Controller
             $total = $total + $price;
         }
 
+        foreach ($numberPlays as $numberPlay) {
+            $price = $numberPlay->number->donation;
+            $total = $total + $price;
+        }
+
         return [
             'starPlays' => $starPlays,
+            'numberPlays' => $numberPlays,
             'total' => $total,
         ];
     }
@@ -169,4 +190,54 @@ class GamesController extends Controller
     {
         return Star::with('award')->get();
     }
+
+    public function getNumbersGame(Request $request)
+    {
+        $numbers = Number::where('id', $request->id)
+            ->with([
+                'award',
+                'benefactor'
+            ])
+            ->first();
+
+        $all = collect();
+        for ($i = $numbers->start_number; $i < $numbers->end_number + 1; $i++) {
+            $disalable = Play::where([
+                'type' => 2,
+                'selection' => $i
+            ])->first();
+            $all->add(collect([
+                'number' => $i,
+                'disalable' => $disalable ? true : false,
+                'color' => $disalable ? 'danger' : 'primary',
+            ]));
+        }
+
+        $numbers->numbers = $all;
+
+        return $numbers;
+    }
+
+    public function saveNumbers(Request $request)
+    {
+
+        $bearerToken = $request->bearerToken();
+        $token = PersonalAccessToken::findToken($bearerToken);
+        $user = $token->tokenable;
+
+        $numberPlay = new NumberPlay;
+        $numberPlay->user_id = $user->id;
+        $numberPlay->number_id = $request->id;
+        $numberPlay->save();
+
+        foreach ($request->selectedNumbers as $selectedNumber) {
+            $play = new Play;
+            $play->type = 2;
+            $play->play = $numberPlay->id;
+            $play->selection = $selectedNumber;
+            $play->save();
+        }
+
+    }
+
 }

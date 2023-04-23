@@ -42,4 +42,9 @@ class NumberPlay extends Model
     {
         return $date->format('Y-m-d H:i:s');
     }
+
+    public function plays()
+    {
+        return $this->hasMany(Play::class, 'play', 'id');
+    }
 }
