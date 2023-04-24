@@ -160,12 +160,21 @@ class GamesController extends Controller
         return StarPlay::find($request->id)->delete();
     }
 
+    public function deleteNumberItem(Request $request)
+    {
+        return NumberPlay::find($request->id)->delete();
+    }
+
     public function deleteAllFromCart(Request $request)
     {
         $bearerToken = $request->bearerToken();
         $token = PersonalAccessToken::findToken($bearerToken);
         $user = $token->tokenable;
-        return StarPlay::where([
+        StarPlay::where([
+            'user_id' => $user->id,
+            'payed' => false
+        ])->delete();
+        NumberPlay::where([
             'user_id' => $user->id,
             'payed' => false
         ])->delete();
@@ -225,12 +234,11 @@ class GamesController extends Controller
         $token = PersonalAccessToken::findToken($bearerToken);
         $user = $token->tokenable;
 
-        $numberPlay = new NumberPlay;
-        $numberPlay->user_id = $user->id;
-        $numberPlay->number_id = $request->id;
-        $numberPlay->save();
-
         foreach ($request->selectedNumbers as $selectedNumber) {
+            $numberPlay = new NumberPlay;
+            $numberPlay->user_id = $user->id;
+            $numberPlay->number_id = $request->id;
+            $numberPlay->save();
             $play = new Play;
             $play->type = 2;
             $play->play = $numberPlay->id;
@@ -238,6 +246,36 @@ class GamesController extends Controller
             $play->save();
         }
 
+    }
+
+    public function myPlays(Request $request)
+    {
+        $bearerToken = $request->bearerToken();
+        $token = PersonalAccessToken::findToken($bearerToken);
+        $user = $token->tokenable;
+
+        $starPlays = StarPlay::where([
+            'user_id' => $user->id,
+        ])
+            ->with([
+                'plays',
+                'star'
+            ])
+            ->get();
+
+        $numberPlays = NumberPlay::where([
+            'user_id' => $user->id,
+        ])
+            ->with([
+                'plays',
+                'number'
+            ])
+            ->get();
+
+        $mergedCollection = $starPlays->merge($numberPlays);
+        $filteredCollection = $mergedCollection->sortBy('created_at');
+
+        return $filteredCollection;
     }
 
 }
