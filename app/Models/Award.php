@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use \DateTimeInterface;
+use DateTimeInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -12,9 +12,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Award extends Model implements HasMedia
 {
-    use SoftDeletes;
-    use InteractsWithMedia;
-    use HasFactory;
+    use SoftDeletes, InteractsWithMedia, HasFactory;
 
     public $table = 'awards';
 
@@ -30,11 +28,17 @@ class Award extends Model implements HasMedia
 
     protected $fillable = [
         'name',
+        'credits',
         'description',
         'created_at',
         'updated_at',
         'deleted_at',
     ];
+
+    protected function serializeDate(DateTimeInterface $date)
+    {
+        return $date->format('Y-m-d H:i:s');
+    }
 
     public function registerMediaConversions(Media $media = null): void
     {
@@ -52,10 +56,5 @@ class Award extends Model implements HasMedia
         }
 
         return $file;
-    }
-
-    protected function serializeDate(DateTimeInterface $date)
-    {
-        return $date->format('Y-m-d H:i:s');
     }
 }

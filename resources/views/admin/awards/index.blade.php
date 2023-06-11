@@ -28,6 +28,9 @@
                         {{ trans('cruds.award.fields.name') }}
                     </th>
                     <th>
+                        {{ trans('cruds.award.fields.credits') }}
+                    </th>
+                    <th>
                         {{ trans('cruds.award.fields.photo') }}
                     </th>
                     <th>
@@ -88,6 +91,7 @@
       { data: 'placeholder', name: 'placeholder' },
 { data: 'id', name: 'id' },
 { data: 'name', name: 'name' },
+{ data: 'credits', name: 'credits' },
 { data: 'photo', name: 'photo', sortable: false, searchable: false },
 { data: 'actions', name: '{{ trans('global.actions') }}' }
     ],

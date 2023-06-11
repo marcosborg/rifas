@@ -23,25 +23,25 @@ class AwardsController extends Controller
         abort_if(Gate::denies('award_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         if ($request->ajax()) {
-            $query = Award::query()->select(sprintf('%s.*', (new Award())->table));
+            $query = Award::query()->select(sprintf('%s.*', (new Award)->table));
             $table = Datatables::of($query);
 
             $table->addColumn('placeholder', '&nbsp;');
             $table->addColumn('actions', '&nbsp;');
 
             $table->editColumn('actions', function ($row) {
-                $viewGate = 'award_show';
-                $editGate = 'award_edit';
-                $deleteGate = 'award_delete';
+                $viewGate      = 'award_show';
+                $editGate      = 'award_edit';
+                $deleteGate    = 'award_delete';
                 $crudRoutePart = 'awards';
 
                 return view('partials.datatablesActions', compact(
-                'viewGate',
-                'editGate',
-                'deleteGate',
-                'crudRoutePart',
-                'row'
-            ));
+                    'viewGate',
+                    'editGate',
+                    'deleteGate',
+                    'crudRoutePart',
+                    'row'
+                ));
             });
 
             $table->editColumn('id', function ($row) {
@@ -50,13 +50,16 @@ class AwardsController extends Controller
             $table->editColumn('name', function ($row) {
                 return $row->name ? $row->name : '';
             });
+            $table->editColumn('credits', function ($row) {
+                return $row->credits ? $row->credits : '';
+            });
             $table->editColumn('photo', function ($row) {
                 if ($photo = $row->photo) {
                     return sprintf(
-        '<a href="%s" target="_blank"><img src="%s" width="50px" height="50px"></a>',
-        $photo->url,
-        $photo->thumbnail
-    );
+                        '<a href="%s" target="_blank"><img src="%s" width="50px" height="50px"></a>',
+                        $photo->url,
+                        $photo->thumbnail
+                    );
                 }
 
                 return '';
@@ -104,7 +107,7 @@ class AwardsController extends Controller
         $award->update($request->all());
 
         if ($request->input('photo', false)) {
-            if (!$award->photo || $request->input('photo') !== $award->photo->file_name) {
+            if (! $award->photo || $request->input('photo') !== $award->photo->file_name) {
                 if ($award->photo) {
                     $award->photo->delete();
                 }
@@ -135,7 +138,11 @@ class AwardsController extends Controller
 
     public function massDestroy(MassDestroyAwardRequest $request)
     {
-        Award::whereIn('id', request('ids'))->delete();
+        $awards = Award::find(request('ids'));
+
+        foreach ($awards as $award) {
+            $award->delete();
+        }
 
         return response(null, Response::HTTP_NO_CONTENT);
     }

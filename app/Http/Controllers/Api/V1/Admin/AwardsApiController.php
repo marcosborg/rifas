@@ -48,7 +48,7 @@ class AwardsApiController extends Controller
         $award->update($request->all());
 
         if ($request->input('photo', false)) {
-            if (!$award->photo || $request->input('photo') !== $award->photo->file_name) {
+            if (! $award->photo || $request->input('photo') !== $award->photo->file_name) {
                 if ($award->photo) {
                     $award->photo->delete();
                 }

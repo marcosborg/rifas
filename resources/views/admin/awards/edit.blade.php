@@ -19,6 +19,14 @@
                 <span class="help-block">{{ trans('cruds.award.fields.name_helper') }}</span>
             </div>
             <div class="form-group">
+                <label for="credits">{{ trans('cruds.award.fields.credits') }}</label>
+                <input class="form-control {{ $errors->has('credits') ? 'is-invalid' : '' }}" type="number" name="credits" id="credits" value="{{ old('credits', $award->credits) }}" step="1">
+                @if($errors->has('credits'))
+                    <span class="text-danger">{{ $errors->first('credits') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.award.fields.credits_helper') }}</span>
+            </div>
+            <div class="form-group">
                 <label for="photo">{{ trans('cruds.award.fields.photo') }}</label>
                 <div class="needsclick dropzone {{ $errors->has('photo') ? 'is-invalid' : '' }}" id="photo-dropzone">
                 </div>

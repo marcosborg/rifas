@@ -33,6 +33,14 @@
                     </tr>
                     <tr>
                         <th>
+                            {{ trans('cruds.award.fields.credits') }}
+                        </th>
+                        <td>
+                            {{ $award->credits }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
                             {{ trans('cruds.award.fields.photo') }}
                         </th>
                         <td>
