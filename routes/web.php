@@ -3,6 +3,8 @@
 Route::get('/', 'WebsiteController@index');
 Route::get('terms', 'WebsiteController@terms');
 Route::get('privacy', 'WebsiteController@privacy');
+Route::get('forget-me', 'WebsiteController@forgetMe');
+Route::post('account-delete', 'WebsiteController@accountDelete');
 
 Route::get('/home', function () {
     if (session('status')) {
