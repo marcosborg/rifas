@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class StarPlay extends Model
+class Payment extends Model
 {
     use SoftDeletes, HasFactory;
 
-    public $table = 'star_plays';
+    public $table = 'payments';
 
     protected $dates = [
         'created_at',
@@ -21,9 +21,11 @@ class StarPlay extends Model
 
     protected $fillable = [
         'user_id',
-        'star_id',
+        'total',
+        'type',
+        'plays_json',
         'payed',
-        'confirmed',
+        'entity_id',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -39,13 +41,8 @@ class StarPlay extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function star()
+    public function entity()
     {
-        return $this->belongsTo(Star::class, 'star_id');
-    }
-
-    public function plays()
-    {
-        return $this->hasMany(Play::class, 'play', 'id');
+        return $this->belongsTo(Entity::class, 'entity_id');
     }
 }

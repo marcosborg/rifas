@@ -49,6 +49,9 @@
                         {{ trans('cruds.starPlay.fields.payed') }}
                     </th>
                     <th>
+                        {{ trans('cruds.starPlay.fields.confirmed') }}
+                    </th>
+                    <th>
                         &nbsp;
                     </th>
                 </tr>
@@ -113,6 +116,7 @@
 { data: 'star.donation', name: 'star.donation' },
 { data: 'star.limit', name: 'star.limit' },
 { data: 'payed', name: 'payed' },
+{ data: 'confirmed', name: 'confirmed' },
 { data: 'actions', name: '{{ trans('global.actions') }}' }
     ],
     orderCellsTop: true,

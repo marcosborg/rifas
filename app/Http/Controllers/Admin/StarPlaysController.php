@@ -21,25 +21,25 @@ class StarPlaysController extends Controller
         abort_if(Gate::denies('star_play_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         if ($request->ajax()) {
-            $query = StarPlay::with(['user', 'star'])->select(sprintf('%s.*', (new StarPlay())->table));
+            $query = StarPlay::with(['user', 'star'])->select(sprintf('%s.*', (new StarPlay)->table));
             $table = Datatables::of($query);
 
             $table->addColumn('placeholder', '&nbsp;');
             $table->addColumn('actions', '&nbsp;');
 
             $table->editColumn('actions', function ($row) {
-                $viewGate = 'star_play_show';
-                $editGate = 'star_play_edit';
-                $deleteGate = 'star_play_delete';
+                $viewGate      = 'star_play_show';
+                $editGate      = 'star_play_edit';
+                $deleteGate    = 'star_play_delete';
                 $crudRoutePart = 'star-plays';
 
                 return view('partials.datatablesActions', compact(
-                'viewGate',
-                'editGate',
-                'deleteGate',
-                'crudRoutePart',
-                'row'
-            ));
+                    'viewGate',
+                    'editGate',
+                    'deleteGate',
+                    'crudRoutePart',
+                    'row'
+                ));
             });
 
             $table->editColumn('id', function ($row) {
@@ -71,8 +71,11 @@ class StarPlaysController extends Controller
             $table->editColumn('payed', function ($row) {
                 return '<input type="checkbox" disabled ' . ($row->payed ? 'checked' : null) . '>';
             });
+            $table->editColumn('confirmed', function ($row) {
+                return '<input type="checkbox" disabled ' . ($row->confirmed ? 'checked' : null) . '>';
+            });
 
-            $table->rawColumns(['actions', 'placeholder', 'user', 'star', 'payed']);
+            $table->rawColumns(['actions', 'placeholder', 'user', 'star', 'payed', 'confirmed']);
 
             return $table->make(true);
         }
@@ -138,7 +141,11 @@ class StarPlaysController extends Controller
 
     public function massDestroy(MassDestroyStarPlayRequest $request)
     {
-        StarPlay::whereIn('id', request('ids'))->delete();
+        $starPlays = StarPlay::find(request('ids'));
+
+        foreach ($starPlays as $starPlay) {
+            $starPlay->delete();
+        }
 
         return response(null, Response::HTTP_NO_CONTENT);
     }

@@ -47,6 +47,14 @@
                             <input type="checkbox" disabled="disabled" {{ $starPlay->payed ? 'checked' : '' }}>
                         </td>
                     </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.starPlay.fields.confirmed') }}
+                        </th>
+                        <td>
+                            <input type="checkbox" disabled="disabled" {{ $starPlay->confirmed ? 'checked' : '' }}>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <div class="form-group">

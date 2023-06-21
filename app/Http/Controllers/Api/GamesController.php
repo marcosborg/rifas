@@ -120,6 +120,7 @@ class GamesController extends Controller
                 $query->where('start_date', '<=', $now);
                 $query->where('end_date', '>=', $now);
             })
+            ->where('confirmed', 0)
             ->get();
 
         $numberPlays = NumberPlay::where([
@@ -259,7 +260,7 @@ class GamesController extends Controller
         ])
             ->with([
                 'plays',
-                'star'
+                'star.award'
             ])
             ->get();
 

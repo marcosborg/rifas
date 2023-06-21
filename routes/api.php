@@ -61,5 +61,5 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
     Route::apiResource('benefactors', 'BenefactorApiController');
 
     // Payment
-    Route::get('paymentConfirmation', 'PaymentApiController@paymentConfirmation');
+    Route::post('paymentConfirmation', 'PaymentApiController@paymentConfirmation');
 });
