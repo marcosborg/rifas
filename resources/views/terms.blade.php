@@ -7,24 +7,20 @@
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
-    </style>
 </head>
 
 <body>
-    <div class="container text-center">
-        <img src="/assets/logo.png" alt="rifas.net" width="300">
+    <div class="container">
+        <img src="/assets/logo.png" alt="rifas.net" width="150">
         <div class="mt-4">
             <a href="/terms" class="btn btn-primary btn-sm">Termos e condições de utilização</a>
             <a href="/privacy" class="btn btn-success btn-sm">Política de privacidade</a>
         </div>
+        <div class="mt-5">
+            <h4 class="mb-4">Termos e condições de utilização</h4>
+            {!! $terms->page_text !!}
+        </div>
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
