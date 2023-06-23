@@ -22,7 +22,7 @@ class StoreEntityRequest extends FormRequest
                 'max:255',
                 'required',
             ],
-            'sub_category_id' => [
+            'category_id' => [
                 'required',
                 'integer',
             ],

@@ -28,7 +28,10 @@
                         {{ trans('cruds.entity.fields.name') }}
                     </th>
                     <th>
-                        {{ trans('cruds.entity.fields.sub_category') }}
+                        {{ trans('cruds.entity.fields.category') }}
+                    </th>
+                    <th>
+                        {{ trans('cruds.entity.fields.photo') }}
                     </th>
                     <th>
                         &nbsp;
@@ -88,7 +91,8 @@
       { data: 'placeholder', name: 'placeholder' },
 { data: 'id', name: 'id' },
 { data: 'name', name: 'name' },
-{ data: 'sub_category_name', name: 'sub_category.name' },
+{ data: 'category_name', name: 'category.name' },
+{ data: 'photo', name: 'photo', sortable: false, searchable: false },
 { data: 'actions', name: '{{ trans('global.actions') }}' }
     ],
     orderCellsTop: true,

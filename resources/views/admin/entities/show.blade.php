@@ -33,10 +33,22 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.entity.fields.sub_category') }}
+                            {{ trans('cruds.entity.fields.category') }}
                         </th>
                         <td>
-                            {{ $entity->sub_category->name ?? '' }}
+                            {{ $entity->category->name ?? '' }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.entity.fields.photo') }}
+                        </th>
+                        <td>
+                            @if($entity->photo)
+                                <a href="{{ $entity->photo->getUrl() }}" target="_blank" style="display: inline-block">
+                                    <img src="{{ $entity->photo->getUrl('thumb') }}">
+                                </a>
+                            @endif
                         </td>
                     </tr>
                 </tbody>

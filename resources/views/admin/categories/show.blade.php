@@ -31,6 +31,18 @@
                             {{ $category->name }}
                         </td>
                     </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.category.fields.photo') }}
+                        </th>
+                        <td>
+                            @if($category->photo)
+                                <a href="{{ $category->photo->getUrl() }}" target="_blank" style="display: inline-block">
+                                    <img src="{{ $category->photo->getUrl('thumb') }}">
+                                </a>
+                            @endif
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <div class="form-group">

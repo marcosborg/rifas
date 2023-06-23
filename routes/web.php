@@ -54,10 +54,14 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
     // Category
     Route::delete('categories/destroy', 'CategoryController@massDestroy')->name('categories.massDestroy');
+    Route::post('categories/media', 'CategoryController@storeMedia')->name('categories.storeMedia');
+    Route::post('categories/ckmedia', 'CategoryController@storeCKEditorImages')->name('categories.storeCKEditorImages');
     Route::resource('categories', 'CategoryController');
 
     // Entity
     Route::delete('entities/destroy', 'EntityController@massDestroy')->name('entities.massDestroy');
+    Route::post('entities/media', 'EntityController@storeMedia')->name('entities.storeMedia');
+    Route::post('entities/ckmedia', 'EntityController@storeCKEditorImages')->name('entities.storeCKEditorImages');
     Route::resource('entities', 'EntityController');
 
     // Star Plays
@@ -81,10 +85,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Benefactor
     Route::delete('benefactors/destroy', 'BenefactorController@massDestroy')->name('benefactors.massDestroy');
     Route::resource('benefactors', 'BenefactorController');
-
-    // Sub Category
-    Route::delete('sub-categories/destroy', 'SubCategoryController@massDestroy')->name('sub-categories.massDestroy');
-    Route::resource('sub-categories', 'SubCategoryController');
 
     // Payment
     Route::delete('payments/destroy', 'PaymentController@massDestroy')->name('payments.massDestroy');

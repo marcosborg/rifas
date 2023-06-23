@@ -236,18 +236,6 @@
                                     </a>
                                 </li>
                             @endcan
-                            @can('sub_category_access')
-                                <li class="nav-item">
-                                    <a href="{{ route("admin.sub-categories.index") }}" class="nav-link {{ request()->is("admin/sub-categories") || request()->is("admin/sub-categories/*") ? "active" : "" }}">
-                                        <i class="fa-fw nav-icon fas fa-th">
-
-                                        </i>
-                                        <p>
-                                            {{ trans('cruds.subCategory.title') }}
-                                        </p>
-                                    </a>
-                                </li>
-                            @endcan
                         </ul>
                     </li>
                 @endcan
