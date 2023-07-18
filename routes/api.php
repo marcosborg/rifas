@@ -13,14 +13,13 @@ Route::middleware('auth:sanctum')->prefix('v1')->group(function () {
     Route::get('deleteStarItem/{id}', 'Api\GamesController@deleteStarItem');
     Route::get('deleteAllFromCart', 'Api\GamesController@deleteAllFromCart');
     Route::get('getEntityCategories', 'Api\GamesController@getEntityCategories');
-    Route::get('getEntitySubCategories/{id}', 'Api\GamesController@getEntitySubCategories');
-    Route::get('getEntities/{id}', 'Api\GamesController@getEntities');
     Route::post('updateUser', 'Api\AuthController@updateUser');
     Route::get('lastGames', 'Api\GamesController@lastGames');
     Route::get('getNumbersGame/{id}', 'Api\GamesController@getNumbersGame');
     Route::post('saveNumbers', 'Api\GamesController@saveNumbers');
     Route::get('deleteNumberItem/{id}', 'Api\GamesController@deleteNumberItem');
     Route::get('myPlays', 'Api\GamesController@myPlays');
+    Route::get('getEntities/{category_id}', 'Api\GamesController@getEntities');
 });
 
 Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', 'middleware' => ['auth:sanctum']], function () {

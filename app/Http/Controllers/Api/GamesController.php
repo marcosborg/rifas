@@ -186,14 +186,10 @@ class GamesController extends Controller
         return Category::all();
     }
 
-    public function getEntitySubCategories(Request $request)
-    {
-        return SubCategory::where('category_id', $request->id)->get();
-    }
-
     public function getEntities(Request $request)
     {
-        return Entity::where('sub_category_id', $request->id)->get();
+        $entities = Entity::where('category_id', $request->category_id)->get();
+        return $entities;
     }
 
     public function lastGames(Request $request)

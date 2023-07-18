@@ -9,6 +9,8 @@ use App\Http\Requests\UpdateStarRequest;
 use App\Models\Award;
 use App\Models\Benefactor;
 use App\Models\Star;
+use App\Models\StarPlay;
+use App\Models\Win;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -33,13 +35,16 @@ class StarController extends Controller
                 $deleteGate = 'star_delete';
                 $crudRoutePart = 'stars';
 
-                return view('partials.datatablesActions', compact(
-                'viewGate',
-                'editGate',
-                'deleteGate',
-                'crudRoutePart',
-                'row'
-            ));
+                return view(
+                    'partials.datatablesActions',
+                    compact(
+                        'viewGate',
+                        'editGate',
+                        'deleteGate',
+                        'crudRoutePart',
+                        'row'
+                    )
+                );
             });
 
             $table->editColumn('id', function ($row) {
@@ -116,8 +121,28 @@ class StarController extends Controller
 
     public function update(UpdateStarRequest $request, Star $star)
     {
+
         $star->update($request->all());
         $star->benefectors()->sync($request->input('benefectors', []));
+
+        //CHECK WINNERS
+
+        $star_plays = StarPlay::whereHas('plays', function ($query) use ($star) {
+            $query->where(function ($query) use ($star) {
+                $query->where('selection', $star->star_1)
+                    ->orWhere('selection', $star->star_2);
+            });
+        })
+            ->where('payed', 1)
+            ->where('star_id', $star->id)->get()->load('plays');
+
+        foreach ($star_plays as $star_play) {
+            $win = new Win;
+            $win->star_id = $star->id;
+            $win->star_play_id = $star_play->id;
+            $win->user_id = $star_play->user_id;
+            $win->save();
+        }
 
         return redirect()->route('admin.stars.index');
     }
