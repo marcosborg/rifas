@@ -94,6 +94,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('wins/destroy', 'WinController@massDestroy')->name('wins.massDestroy');
     Route::resource('wins', 'WinController');
 
+    // Wallet
+    Route::delete('wallets/destroy', 'WalletController@massDestroy')->name('wallets.massDestroy');
+    Route::resource('wallets', 'WalletController');
+
     Route::get('system-calendar', 'SystemCalendarController@index')->name('systemCalendar');
 });
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {

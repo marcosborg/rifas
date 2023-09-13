@@ -299,6 +299,18 @@
                         </a>
                     </li>
                 @endcan
+                @can('wallet_access')
+                    <li class="nav-item">
+                        <a href="{{ route("admin.wallets.index") }}" class="nav-link {{ request()->is("admin/wallets") || request()->is("admin/wallets/*") ? "active" : "" }}">
+                            <i class="fa-fw nav-icon fas fa-wallet">
+
+                            </i>
+                            <p>
+                                {{ trans('cruds.wallet.title') }}
+                            </p>
+                        </a>
+                    </li>
+                @endcan
                 <li class="nav-item">
                     <a href="{{ route("admin.systemCalendar") }}" class="nav-link {{ request()->is("admin/system-calendar") || request()->is("admin/system-calendar/*") ? "active" : "" }}">
                         <i class="fas fa-fw fa-calendar nav-icon">
