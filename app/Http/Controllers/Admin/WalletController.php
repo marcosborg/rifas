@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\MassDestroyWalletRequest;
 use App\Http\Requests\StoreWalletRequest;
 use App\Http\Requests\UpdateWalletRequest;
-use App\Models\Play;
+use App\Models\StarPlay;
 use App\Models\User;
 use App\Models\Wallet;
 use Gate;
@@ -19,7 +19,7 @@ class WalletController extends Controller
     {
         abort_if(Gate::denies('wallet_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $wallets = Wallet::with(['user', 'play'])->get();
+        $wallets = Wallet::with(['user', 'star_play'])->get();
 
         return view('admin.wallets.index', compact('wallets'));
     }
@@ -30,9 +30,9 @@ class WalletController extends Controller
 
         $users = User::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        $plays = Play::pluck('type', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $star_plays = StarPlay::pluck('payed', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('admin.wallets.create', compact('plays', 'users'));
+        return view('admin.wallets.create', compact('star_plays', 'users'));
     }
 
     public function store(StoreWalletRequest $request)
@@ -48,11 +48,11 @@ class WalletController extends Controller
 
         $users = User::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        $plays = Play::pluck('type', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $star_plays = StarPlay::pluck('payed', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        $wallet->load('user', 'play');
+        $wallet->load('user', 'star_play');
 
-        return view('admin.wallets.edit', compact('plays', 'users', 'wallet'));
+        return view('admin.wallets.edit', compact('star_plays', 'users', 'wallet'));
     }
 
     public function update(UpdateWalletRequest $request, Wallet $wallet)
@@ -66,7 +66,7 @@ class WalletController extends Controller
     {
         abort_if(Gate::denies('wallet_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $wallet->load('user', 'play');
+        $wallet->load('user', 'star_play');
 
         return view('admin.wallets.show', compact('wallet'));
     }

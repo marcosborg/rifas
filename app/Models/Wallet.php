@@ -21,8 +21,7 @@ class Wallet extends Model
 
     protected $fillable = [
         'user_id',
-        'play_id',
-        'transferred',
+        'star_play_id',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -38,8 +37,8 @@ class Wallet extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function play()
+    public function star_play()
     {
-        return $this->belongsTo(Play::class, 'play_id');
+        return $this->belongsTo(StarPlay::class, 'star_play_id');
     }
 }

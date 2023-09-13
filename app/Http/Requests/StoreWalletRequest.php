@@ -11,7 +11,7 @@ class StoreWalletRequest extends FormRequest
 {
     public function authorize()
     {
-        return Gate::allows('wallet_create');
+        return true;
     }
 
     public function rules()
@@ -21,7 +21,7 @@ class StoreWalletRequest extends FormRequest
                 'required',
                 'integer',
             ],
-            'play_id' => [
+            'star_play_id' => [
                 'required',
                 'integer',
             ],

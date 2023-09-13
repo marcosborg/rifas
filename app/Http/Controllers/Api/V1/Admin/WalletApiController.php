@@ -15,9 +15,9 @@ class WalletApiController extends Controller
 {
     public function index()
     {
-        abort_if(Gate::denies('wallet_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        //abort_if(Gate::denies('wallet_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return new WalletResource(Wallet::with(['user', 'play'])->get());
+        return new WalletResource(Wallet::with(['user', 'star_play'])->get());
     }
 
     public function store(StoreWalletRequest $request)
@@ -33,7 +33,7 @@ class WalletApiController extends Controller
     {
         abort_if(Gate::denies('wallet_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return new WalletResource($wallet->load(['user', 'play']));
+        return new WalletResource($wallet->load(['user', 'star_play']));
     }
 
     public function update(UpdateWalletRequest $request, Wallet $wallet)

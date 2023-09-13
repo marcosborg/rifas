@@ -23,27 +23,16 @@
                 <span class="help-block">{{ trans('cruds.wallet.fields.user_helper') }}</span>
             </div>
             <div class="form-group">
-                <label class="required" for="play_id">{{ trans('cruds.wallet.fields.play') }}</label>
-                <select class="form-control select2 {{ $errors->has('play') ? 'is-invalid' : '' }}" name="play_id" id="play_id" required>
-                    @foreach($plays as $id => $entry)
-                        <option value="{{ $id }}" {{ (old('play_id') ? old('play_id') : $wallet->play->id ?? '') == $id ? 'selected' : '' }}>{{ $entry }}</option>
+                <label class="required" for="star_play_id">{{ trans('cruds.wallet.fields.star_play') }}</label>
+                <select class="form-control select2 {{ $errors->has('star_play') ? 'is-invalid' : '' }}" name="star_play_id" id="star_play_id" required>
+                    @foreach($star_plays as $id => $entry)
+                        <option value="{{ $id }}" {{ (old('star_play_id') ? old('star_play_id') : $wallet->star_play->id ?? '') == $id ? 'selected' : '' }}>{{ $entry }}</option>
                     @endforeach
                 </select>
-                @if($errors->has('play'))
-                    <span class="text-danger">{{ $errors->first('play') }}</span>
+                @if($errors->has('star_play'))
+                    <span class="text-danger">{{ $errors->first('star_play') }}</span>
                 @endif
-                <span class="help-block">{{ trans('cruds.wallet.fields.play_helper') }}</span>
-            </div>
-            <div class="form-group">
-                <div class="form-check {{ $errors->has('transferred') ? 'is-invalid' : '' }}">
-                    <input type="hidden" name="transferred" value="0">
-                    <input class="form-check-input" type="checkbox" name="transferred" id="transferred" value="1" {{ $wallet->transferred || old('transferred', 0) === 1 ? 'checked' : '' }}>
-                    <label class="form-check-label" for="transferred">{{ trans('cruds.wallet.fields.transferred') }}</label>
-                </div>
-                @if($errors->has('transferred'))
-                    <span class="text-danger">{{ $errors->first('transferred') }}</span>
-                @endif
-                <span class="help-block">{{ trans('cruds.wallet.fields.transferred_helper') }}</span>
+                <span class="help-block">{{ trans('cruds.wallet.fields.star_play_helper') }}</span>
             </div>
             <div class="form-group">
                 <button class="btn btn-danger" type="submit">

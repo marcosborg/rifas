@@ -21,7 +21,7 @@ class UpdateWalletRequest extends FormRequest
                 'required',
                 'integer',
             ],
-            'play_id' => [
+            'star_play_id' => [
                 'required',
                 'integer',
             ],

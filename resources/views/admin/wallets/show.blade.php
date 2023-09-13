@@ -33,18 +33,10 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.wallet.fields.play') }}
+                            {{ trans('cruds.wallet.fields.star_play') }}
                         </th>
                         <td>
-                            {{ $wallet->play->type ?? '' }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.wallet.fields.transferred') }}
-                        </th>
-                        <td>
-                            <input type="checkbox" disabled="disabled" {{ $wallet->transferred ? 'checked' : '' }}>
+                            {{ $wallet->star_play->payed ?? '' }}
                         </td>
                     </tr>
                 </tbody>

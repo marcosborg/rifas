@@ -32,16 +32,7 @@
                             {{ trans('cruds.user.fields.email') }}
                         </th>
                         <th>
-                            {{ trans('cruds.wallet.fields.play') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.play.fields.play') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.play.fields.selection') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.wallet.fields.transferred') }}
+                            {{ trans('cruds.wallet.fields.star_play') }}
                         </th>
                         <th>
                             &nbsp;
@@ -64,17 +55,7 @@
                                 {{ $wallet->user->email ?? '' }}
                             </td>
                             <td>
-                                {{ $wallet->play->type ?? '' }}
-                            </td>
-                            <td>
-                                {{ $wallet->play->play ?? '' }}
-                            </td>
-                            <td>
-                                {{ $wallet->play->selection ?? '' }}
-                            </td>
-                            <td>
-                                <span style="display:none">{{ $wallet->transferred ?? '' }}</span>
-                                <input type="checkbox" disabled="disabled" {{ $wallet->transferred ? 'checked' : '' }}>
+                                {{ $wallet->star_play->payed ?? '' }}
                             </td>
                             <td>
                                 @can('wallet_show')
