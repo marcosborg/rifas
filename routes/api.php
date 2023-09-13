@@ -61,4 +61,7 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
 
     // Payment
     Route::post('paymentConfirmation', 'PaymentApiController@paymentConfirmation');
+
+    // Wallet
+    Route::apiResource('wallets', 'WalletApiController');
 });
