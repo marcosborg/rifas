@@ -272,7 +272,7 @@ class GamesController extends Controller
         $mergedCollection = $starPlays->merge($numberPlays);
         $filteredCollection = $mergedCollection->sortBy('created_at');
 
-        return $filteredCollection;
+        return $starPlays;
     }
 
 }
