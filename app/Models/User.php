@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use \DateTimeInterface;
 use Carbon\Carbon;
+use DateTimeInterface;
 use Hash;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -15,10 +15,7 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use SoftDeletes;
-    use Notifiable;
-    use HasFactory;
-    use HasApiTokens;
+    use SoftDeletes, Notifiable, HasFactory, HasApiTokens;
 
     public $table = 'users';
 
@@ -40,10 +37,16 @@ class User extends Authenticatable
         'email_verified_at',
         'password',
         'remember_token',
+        'wallet',
         'created_at',
         'updated_at',
         'deleted_at',
     ];
+
+    protected function serializeDate(DateTimeInterface $date)
+    {
+        return $date->format('Y-m-d H:i:s');
+    }
 
     public function getIsAdminAttribute()
     {
@@ -75,10 +78,5 @@ class User extends Authenticatable
     public function roles()
     {
         return $this->belongsToMany(Role::class);
-    }
-
-    protected function serializeDate(DateTimeInterface $date)
-    {
-        return $date->format('Y-m-d H:i:s');
     }
 }

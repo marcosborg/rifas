@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreWalletRequest;
 use App\Http\Requests\UpdateWalletRequest;
 use App\Http\Resources\Admin\WalletResource;
+use App\Models\StarPlay;
+use App\Models\User;
 use App\Models\Wallet;
 use Gate;
 use Illuminate\Http\Request;
@@ -53,4 +55,34 @@ class WalletApiController extends Controller
 
         return response(null, Response::HTTP_NO_CONTENT);
     }
+
+    public function walletsByStarPlayId($star_play_id)
+    {
+        return Wallet::where([
+            'star_play_id' => $star_play_id
+        ])->first();
+    }
+
+    public function starPlayById(Request $request)
+    {
+        return StarPlay::find($request->star_play_id)->load('star.award');
+    }
+
+    public function tranferValue(Request $request)
+    {
+
+        $wallet = new Wallet;
+        $wallet->user_id = $request->user()->id;
+        $wallet->star_play_id = $request->star_play_id;
+        $wallet->save();
+
+        $star_play = StarPlay::find($request->star_play_id)->load('star.award');
+        
+        $user = User::find($request->user()->id);
+        $credits = $user->wallet;
+        $user->wallet = $credits + $star_play->star->award->credits;
+        $user->save();
+
+    }
+
 }

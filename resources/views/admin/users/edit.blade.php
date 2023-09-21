@@ -51,6 +51,14 @@
                 <span class="help-block">{{ trans('cruds.user.fields.roles_helper') }}</span>
             </div>
             <div class="form-group">
+                <label for="wallet">{{ trans('cruds.user.fields.wallet') }}</label>
+                <input class="form-control {{ $errors->has('wallet') ? 'is-invalid' : '' }}" type="number" name="wallet" id="wallet" value="{{ old('wallet', $user->wallet) }}" step="1">
+                @if($errors->has('wallet'))
+                    <span class="text-danger">{{ $errors->first('wallet') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.user.fields.wallet_helper') }}</span>
+            </div>
+            <div class="form-group">
                 <button class="btn btn-danger" type="submit">
                     {{ trans('global.save') }}
                 </button>

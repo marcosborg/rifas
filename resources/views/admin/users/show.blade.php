@@ -57,6 +57,14 @@
                             @endforeach
                         </td>
                     </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.user.fields.wallet') }}
+                        </th>
+                        <td>
+                            {{ $user->wallet }}
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <div class="form-group">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Payment;
 use App\Models\StarPlay;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -76,6 +77,12 @@ class PaymentApiController extends Controller
                 $response = curl_exec($curl);
                 curl_close($curl);
                 break;
+            case 'wallet':
+                $user = User::find($request->user()->id);
+                $wallet = $user->wallet;
+                $user->wallet = $wallet - $request->total;
+                $user->save();
+                $response = $user;
             default:
                 break;
         }

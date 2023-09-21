@@ -64,4 +64,7 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
 
     // Wallet
     Route::apiResource('wallets', 'WalletApiController');
+    Route::get('walletsByStarPlayId/{star_play_id}', 'WalletApiController@walletsByStarPlayId');
+    Route::get('starPlayById/{star_play_id}', 'WalletApiController@starPlayById');
+    Route::get('tranferValue/{star_play_id}', 'WalletApiController@tranferValue');
 });

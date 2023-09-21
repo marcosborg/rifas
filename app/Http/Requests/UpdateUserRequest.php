@@ -32,6 +32,12 @@ class UpdateUserRequest extends FormRequest
                 'required',
                 'array',
             ],
+            'wallet' => [
+                'nullable',
+                'integer',
+                'min:-2147483648',
+                'max:2147483647',
+            ],
         ];
     }
 }
