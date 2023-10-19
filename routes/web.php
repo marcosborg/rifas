@@ -98,6 +98,12 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('wallets/destroy', 'WalletController@massDestroy')->name('wallets.massDestroy');
     Route::resource('wallets', 'WalletController');
 
+    // Slide
+    Route::delete('slides/destroy', 'SlideController@massDestroy')->name('slides.massDestroy');
+    Route::post('slides/media', 'SlideController@storeMedia')->name('slides.storeMedia');
+    Route::post('slides/ckmedia', 'SlideController@storeCKEditorImages')->name('slides.storeCKEditorImages');
+    Route::resource('slides', 'SlideController');
+
     Route::get('system-calendar', 'SystemCalendarController@index')->name('systemCalendar');
 });
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {
