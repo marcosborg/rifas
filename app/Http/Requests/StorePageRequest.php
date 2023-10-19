@@ -17,6 +17,9 @@ class StorePageRequest extends FormRequest
     public function rules()
     {
         return [
+            'type' => [
+                'required',
+            ],
             'title' => [
                 'string',
                 'required',

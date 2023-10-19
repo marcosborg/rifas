@@ -26,7 +26,14 @@ class Page extends Model implements HasMedia
         'deleted_at',
     ];
 
+    public const TYPE_RADIO = [
+        '1' => 'Página',
+        '2' => 'Jogo de estrelas',
+        '3' => 'Jogo de números',
+    ];
+
     protected $fillable = [
+        'type',
         'title',
         'description',
         'text',

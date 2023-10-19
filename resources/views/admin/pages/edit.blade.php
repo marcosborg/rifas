@@ -11,6 +11,19 @@
             @method('PUT')
             @csrf
             <div class="form-group">
+                <label class="required">{{ trans('cruds.page.fields.type') }}</label>
+                @foreach(App\Models\Page::TYPE_RADIO as $key => $label)
+                    <div class="form-check {{ $errors->has('type') ? 'is-invalid' : '' }}">
+                        <input class="form-check-input" type="radio" id="type_{{ $key }}" name="type" value="{{ $key }}" {{ old('type', $page->type) === (string) $key ? 'checked' : '' }} required>
+                        <label class="form-check-label" for="type_{{ $key }}">{{ $label }}</label>
+                    </div>
+                @endforeach
+                @if($errors->has('type'))
+                    <span class="text-danger">{{ $errors->first('type') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.page.fields.type_helper') }}</span>
+            </div>
+            <div class="form-group">
                 <label class="required" for="title">{{ trans('cruds.page.fields.title') }}</label>
                 <input class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}" type="text" name="title" id="title" value="{{ old('title', $page->title) }}" required>
                 @if($errors->has('title'))

@@ -453,6 +453,8 @@ return [
             'updated_at_helper'  => ' ',
             'deleted_at'         => 'Deleted at',
             'deleted_at_helper'  => ' ',
+            'type'               => 'Tipo de página',
+            'type_helper'        => ' ',
         ],
     ],
     'feature' => [

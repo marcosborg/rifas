@@ -25,6 +25,14 @@
                     </tr>
                     <tr>
                         <th>
+                            {{ trans('cruds.page.fields.type') }}
+                        </th>
+                        <td>
+                            {{ App\Models\Page::TYPE_RADIO[$page->type] ?? '' }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
                             {{ trans('cruds.page.fields.title') }}
                         </th>
                         <td>

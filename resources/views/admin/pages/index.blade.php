@@ -26,6 +26,9 @@
                             {{ trans('cruds.page.fields.id') }}
                         </th>
                         <th>
+                            {{ trans('cruds.page.fields.type') }}
+                        </th>
+                        <th>
                             {{ trans('cruds.page.fields.title') }}
                         </th>
                         <th>
@@ -47,6 +50,9 @@
                             </td>
                             <td>
                                 {{ $page->id ?? '' }}
+                            </td>
+                            <td>
+                                {{ App\Models\Page::TYPE_RADIO[$page->type] ?? '' }}
                             </td>
                             <td>
                                 {{ $page->title ?? '' }}
