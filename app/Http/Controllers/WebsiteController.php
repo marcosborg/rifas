@@ -10,7 +10,7 @@ class WebsiteController extends Controller
 {
     public function index()
     {
-        return view('welcome');
+        return view('website.home');
     }
 
     public function terms()
