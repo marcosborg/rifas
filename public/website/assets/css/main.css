@@ -3,7 +3,7 @@
 }
 
 body {
-  color: rgba(var(--color-primary-rgb), 1);
+  color: rgba(var(--color-secondary-rgb), 1);
 }
 
 a {
@@ -16,6 +16,10 @@ a:hover {
   text-decoration: none;
 }
 
+small {
+  color: rgba(var(--color-secondary-rgb), 1);
+}
+
 h1,
 h2,
 h3,
@@ -23,6 +27,7 @@ h4,
 h5,
 h6 {
   font-family: var(--font-primary);
+  color: rgba(var(--color-primary-rgb));
 }
 
 #main {
@@ -105,9 +110,9 @@ section {
 }
 
 .btn.btn-primary {
-  background-color: var(--color-black);
+  background-color: var(--color-primary);
   color: var(--color-white);
-  border-color: var(--color-black);
+  border-color: var(--color-primary);
 }
 
 /*--------------------------------------------------------------
@@ -456,7 +461,7 @@ section {
 }
 
 .post-entry-1 h2 a {
-  color: var(--color-black);
+  color: var(--color-links);
 }
 
 .post-entry-1.lg h2 {
@@ -539,7 +544,7 @@ section {
 
 .trending .trending-post li a h3 {
   font-size: 18px;
-  color: rgba(var(--color-black-rgb), 0.9);
+  color: rgba(var(--color-links));
 }
 
 .trending .trending-post li a .author {

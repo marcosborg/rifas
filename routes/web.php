@@ -1,6 +1,10 @@
 <?php
+Route::prefix('/')->group(function () {
+    Route::get('/', 'WebsiteController@index');
+    Route::get('/{page_id}/{slug}', 'WebsiteController@page');
+});
 
-Route::get('/', 'WebsiteController@index');
+
 Route::get('terms', 'WebsiteController@terms');
 Route::get('privacy', 'WebsiteController@privacy');
 Route::get('forget-me', 'WebsiteController@forgetMe');

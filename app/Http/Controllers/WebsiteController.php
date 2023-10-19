@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\ContentPage;
 use App\Models\Feature;
+use App\Models\Page;
 use App\Models\Slide;
 use Illuminate\Http\Request;
 
@@ -46,5 +47,13 @@ class WebsiteController extends Controller
         ]);
 
         return redirect()->back()->with('message', 'Pedido enviado com sucesso.');
+    }
+
+    public function page($page_id, $slug)
+    {
+
+        $page = Page::find($page_id);
+
+        return view('website.page', compact('page'));
     }
 }
