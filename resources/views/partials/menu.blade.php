@@ -347,6 +347,18 @@
                                     </a>
                                 </li>
                             @endcan
+                            @can('feature_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.features.index") }}" class="nav-link {{ request()->is("admin/features") || request()->is("admin/features/*") ? "active" : "" }}">
+                                        <i class="fa-fw nav-icon fas fa-bullhorn">
+
+                                        </i>
+                                        <p>
+                                            {{ trans('cruds.feature.title') }}
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
                         </ul>
                     </li>
                 @endcan

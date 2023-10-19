@@ -110,6 +110,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::post('pages/ckmedia', 'PageController@storeCKEditorImages')->name('pages.storeCKEditorImages');
     Route::resource('pages', 'PageController');
 
+    // Feature
+    Route::delete('features/destroy', 'FeatureController@massDestroy')->name('features.massDestroy');
+    Route::resource('features', 'FeatureController');
+
     Route::get('system-calendar', 'SystemCalendarController@index')->name('systemCalendar');
 });
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {

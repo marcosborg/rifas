@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\ContentPage;
+use App\Models\Feature;
 use App\Models\Slide;
 use Illuminate\Http\Request;
 
@@ -13,8 +14,11 @@ class WebsiteController extends Controller
     {
 
         $slides = Slide::all();
+        $section1 = Feature::where('placement', 1)->orderBy('position')->get()->load('page');
+        $section2 = Feature::where('placement', 2)->limit(6)->orderBy('position')->get()->load('page');
+        $section3 = Feature::where('placement', 3)->orderBy('position')->get()->load('page');
 
-        return view('website.home', compact('slides'));
+        return view('website.home', compact('slides', 'section1', 'section2', 'section3'));
     }
 
     public function terms()
