@@ -359,6 +359,18 @@
                                     </a>
                                 </li>
                             @endcan
+                            @can('menu_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.menus.index") }}" class="nav-link {{ request()->is("admin/menus") || request()->is("admin/menus/*") ? "active" : "" }}">
+                                        <i class="fa-fw nav-icon fas fa-bars">
+
+                                        </i>
+                                        <p>
+                                            {{ trans('cruds.menu.title') }}
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
                         </ul>
                     </li>
                 @endcan

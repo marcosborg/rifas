@@ -46,7 +46,7 @@
                 <img src="/assets/logo-horizontal.png" alt="">
             </a>
 
-            <x-nav />
+            <x-navbar />
 
             <i class="bi bi-list mobile-nav-toggle"></i>
 

@@ -11,14 +11,7 @@
                 </div>
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
-                    <ul class="footer-links list-unstyled">
-                        <li><a href="index.html"><i class="bi bi-chevron-right"></i> Home</a></li>
-                        <li><a href="index.html"><i class="bi bi-chevron-right"></i> Blog</a></li>
-                        <li><a href="category.html"><i class="bi bi-chevron-right"></i> Categories</a></li>
-                        <li><a href="single-post.html"><i class="bi bi-chevron-right"></i> Single Post</a></li>
-                        <li><a href="about.html"><i class="bi bi-chevron-right"></i> About us</a></li>
-                        <li><a href="contact.html"><i class="bi bi-chevron-right"></i> Contact</a></li>
-                    </ul>
+                    <x-footer-links />
                 </div>
             </div>
         </div>

@@ -114,6 +114,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('features/destroy', 'FeatureController@massDestroy')->name('features.massDestroy');
     Route::resource('features', 'FeatureController');
 
+    // Menu
+    Route::delete('menus/destroy', 'MenuController@massDestroy')->name('menus.massDestroy');
+    Route::resource('menus', 'MenuController');
+
     Route::get('system-calendar', 'SystemCalendarController@index')->name('systemCalendar');
 });
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {
