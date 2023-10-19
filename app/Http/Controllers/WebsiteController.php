@@ -4,13 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\ContentPage;
+use App\Models\Slide;
 use Illuminate\Http\Request;
 
 class WebsiteController extends Controller
 {
     public function index()
     {
-        return view('website.home');
+
+        $slides = Slide::all();
+
+        return view('website.home', compact('slides'));
     }
 
     public function terms()

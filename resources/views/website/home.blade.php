@@ -1,7 +1,7 @@
 @extends('layouts.website')
 @section('content')
 
-<x-hero-slider />
+<x-hero-slider :slides=$slides />
 
 <x-posts />
 
