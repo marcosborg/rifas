@@ -335,6 +335,18 @@
                                     </a>
                                 </li>
                             @endcan
+                            @can('page_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.pages.index") }}" class="nav-link {{ request()->is("admin/pages") || request()->is("admin/pages/*") ? "active" : "" }}">
+                                        <i class="fa-fw nav-icon fas fa-sitemap">
+
+                                        </i>
+                                        <p>
+                                            {{ trans('cruds.page.title') }}
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
                         </ul>
                     </li>
                 @endcan

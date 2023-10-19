@@ -104,6 +104,12 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::post('slides/ckmedia', 'SlideController@storeCKEditorImages')->name('slides.storeCKEditorImages');
     Route::resource('slides', 'SlideController');
 
+    // Page
+    Route::delete('pages/destroy', 'PageController@massDestroy')->name('pages.massDestroy');
+    Route::post('pages/media', 'PageController@storeMedia')->name('pages.storeMedia');
+    Route::post('pages/ckmedia', 'PageController@storeCKEditorImages')->name('pages.storeCKEditorImages');
+    Route::resource('pages', 'PageController');
+
     Route::get('system-calendar', 'SystemCalendarController@index')->name('systemCalendar');
 });
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {
