@@ -1,7 +1,7 @@
 <?php
 Route::prefix('/')->group(function () {
     Route::get('/', 'WebsiteController@index');
-    Route::get('/{page_id}/{slug}', 'WebsiteController@page');
+    Route::get('solidar/{page_id}/{slug}', 'WebsiteController@page');
 });
 
 

@@ -5,10 +5,10 @@
             <div class="col-lg-4">
                 @foreach ($section1 as $page)
                 <div class="post-entry-1 lg">
-                    <a href="/{{ $page->page->id }}/{{ Str::slug($page->page->title) }}"><img
+                    <a href="/donate/{{ $page->page->id }}/{{ Str::slug($page->page->title) }}"><img
                             src="{{ $page->page->image->getUrl() }}" alt="{{ $page->page->title }}"
                             class="img-fluid"></a>
-                    <h3><a href="/{{ $page->page->id }}/{{ Str::slug($page->page->title) }}">{{ $page->page->title
+                    <h3><a href="/donate/{{ $page->page->id }}/{{ Str::slug($page->page->title) }}">{{ $page->page->title
                             }}</a></h3>
                     <p class="mb-4 d-block">{{ $page->page->description }}</p>
                 </div>
@@ -23,11 +23,11 @@
                             <div class="col-md-6">
                                 @if ($section2[0])
                                 <div class="post-entry-1">
-                                    <a href="/{{ $section2[0]->page->id }}/{{ Str::slug($section2[0]->page->title) }}"><img
+                                    <a href="/donate/{{ $section2[0]->page->id }}/{{ Str::slug($section2[0]->page->title) }}"><img
                                             src="{{ $section2[0]->page->image->getUrl() }}"
                                             alt="{{ $section2[0]->page->title }}" class="img-fluid"></a>
                                     <h2><a
-                                            href="/{{ $section2[0]->page->id }}/{{ Str::slug($section2[0]->page->title) }}">{{
+                                            href="/donate/{{ $section2[0]->page->id }}/{{ Str::slug($section2[0]->page->title) }}">{{
                                             $section2[0]->page->title }}</a><br><small>{{
                                             Str::limit($page->page->description, 50, '...')
                                             }}</small></h2>
@@ -35,11 +35,11 @@
                                 @endif
                                 @if ($section2[1])
                                 <div class="post-entry-1">
-                                    <a href="/{{ $section2[1]->page->id }}/{{ Str::slug($section2[1]->page->title) }}"><img
+                                    <a href="/donate/{{ $section2[1]->page->id }}/{{ Str::slug($section2[1]->page->title) }}"><img
                                             src="{{ $section2[1]->page->image->getUrl() }}"
                                             alt="{{ $section2[1]->page->title }}" class="img-fluid"></a>
                                     <h2><a
-                                            href="/{{ $section2[1]->page->id }}/{{ Str::slug($section2[1]->page->title) }}">{{
+                                            href="/donate/{{ $section2[1]->page->id }}/{{ Str::slug($section2[1]->page->title) }}">{{
                                             $section2[1]->page->title }}</a><br><small>{{
                                             Str::limit($page->page->description, 50, '...')
                                             }}</small></h2>
@@ -47,11 +47,11 @@
                                 @endif
                                 @if ($section2[2])
                                 <div class="post-entry-1">
-                                    <a href="/{{ $section2[2]->page->id }}/{{ Str::slug($section2[2]->page->title) }}"><img
+                                    <a href="/donate/{{ $section2[2]->page->id }}/{{ Str::slug($section2[2]->page->title) }}"><img
                                             src="{{ $section2[2]->page->image->getUrl() }}"
                                             alt="{{ $section2[2]->page->title }}" class="img-fluid"></a>
                                     <h2><a
-                                            href="/{{ $section2[2]->page->id }}/{{ Str::slug($section2[2]->page->title) }}">{{
+                                            href="/donate/{{ $section2[2]->page->id }}/{{ Str::slug($section2[2]->page->title) }}">{{
                                             $section2[2]->page->title }}</a><br><small>{{
                                             Str::limit($page->page->description, 50, '...')
                                             }}</small></h2>
@@ -61,11 +61,11 @@
                             <div class="col-md-6">
                                 @if ($section2[3])
                                 <div class="post-entry-1">
-                                    <a href="/{{ $section2[3]->page->id }}/{{ Str::slug($section2[3]->page->title) }}"><img
+                                    <a href="/donate/{{ $section2[3]->page->id }}/{{ Str::slug($section2[3]->page->title) }}"><img
                                             src="{{ $section2[3]->page->image->getUrl() }}"
                                             alt="{{ $section2[3]->page->title }}" class="img-fluid"></a>
                                     <h2><a
-                                            href="/{{ $section2[3]->page->id }}/{{ Str::slug($section2[3]->page->title) }}">{{
+                                            href="/donate/{{ $section2[3]->page->id }}/{{ Str::slug($section2[3]->page->title) }}">{{
                                             $section2[3]->page->title }}</a><br><small>{{
                                             Str::limit($page->page->description, 50, '...')
                                             }}</small></h2>
@@ -73,11 +73,11 @@
                                 @endif
                                 @if ($section2[4])
                                 <div class="post-entry-1">
-                                    <a href="/{{ $section2[4]->page->id }}/{{ Str::slug($section2[4]->page->title) }}"><img
+                                    <a href="/donate/{{ $section2[4]->page->id }}/{{ Str::slug($section2[4]->page->title) }}"><img
                                             src="{{ $section2[4]->page->image->getUrl() }}"
                                             alt="{{ $section2[4]->page->title }}" class="img-fluid"></a>
                                     <h2><a
-                                            href="/{{ $section2[4]->page->id }}/{{ Str::slug($section2[4]->page->title) }}">{{
+                                            href="/donate/{{ $section2[4]->page->id }}/{{ Str::slug($section2[4]->page->title) }}">{{
                                             $section2[4]->page->title }}</a><br><small>{{
                                             Str::limit($page->page->description, 50, '...')
                                             }}</small></h2>
@@ -85,11 +85,11 @@
                                 @endif
                                 @if ($section2[5])
                                 <div class="post-entry-1">
-                                    <a href="/{{ $section2[5]->page->id }}/{{ Str::slug($section2[5]->page->title) }}"><img
+                                    <a href="/donate/{{ $section2[5]->page->id }}/{{ Str::slug($section2[5]->page->title) }}"><img
                                             src="{{ $section2[5]->page->image->getUrl() }}"
                                             alt="{{ $section2[5]->page->title }}" class="img-fluid"></a>
                                     <h2><a
-                                            href="/{{ $section2[5]->page->id }}/{{ Str::slug($section2[5]->page->title) }}">{{
+                                            href="/donate/{{ $section2[5]->page->id }}/{{ Str::slug($section2[5]->page->title) }}">{{
                                             $section2[5]->page->title }}</a><br><small>{{
                                             Str::limit($page->page->description, 50, '...')
                                             }}</small></h2>
@@ -106,7 +106,7 @@
                             <ul class="trending-post">
                                 @foreach ($section2 as $page)
                                 <li>
-                                    <a href="/{{ $page->page->id }}/{{ Str::slug($page->page->title) }}">
+                                    <a href="/donate/{{ $page->page->id }}/{{ Str::slug($page->page->title) }}">
                                         <h3>{{ $page->page->title }}</h3>
                                         <span class="author">{{ Str::limit($page->page->description, 50, '...')
                                             }}</span>
