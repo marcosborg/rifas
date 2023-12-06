@@ -70,7 +70,9 @@
                 </p>
             @endif
             <p class="mb-1">
-
+                <a href="\register">
+                    {{ trans('global.create_account') }}
+                </a>
             </p>
         </div>
         <!-- /.login-card-body -->

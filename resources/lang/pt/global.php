@@ -57,6 +57,7 @@ return [
     'update_profile_success'         => 'Perfil atualizado com sucesso',
     'change_password_success'        => 'Senha alterada com sucesso',
     'delete_account_success'         => 'Conta eliminada com sucesso',
+    'create_account'                 => 'Criar nova conta',
     'saved'                          => 'Gravado',
     'profile_information'            => 'Informações do Perfil',
     'all_messages'                   => 'Todas as mensagens',

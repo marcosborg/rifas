@@ -29,7 +29,7 @@
                                     <h2><a
                                             href="/donate/{{ $section2[0]->page->id }}/{{ Str::slug($section2[0]->page->title) }}">{{
                                             $section2[0]->page->title }}</a><br><small>{{
-                                            Str::limit($page->page->description, 50, '...')
+                                            Str::limit($section2[0]->page->description, 50, '...')
                                             }}</small></h2>
                                 </div>
                                 @endif
@@ -41,7 +41,7 @@
                                     <h2><a
                                             href="/donate/{{ $section2[1]->page->id }}/{{ Str::slug($section2[1]->page->title) }}">{{
                                             $section2[1]->page->title }}</a><br><small>{{
-                                            Str::limit($page->page->description, 50, '...')
+                                            Str::limit($section2[1]->page->description, 50, '...')
                                             }}</small></h2>
                                 </div>
                                 @endif
@@ -53,7 +53,7 @@
                                     <h2><a
                                             href="/donate/{{ $section2[2]->page->id }}/{{ Str::slug($section2[2]->page->title) }}">{{
                                             $section2[2]->page->title }}</a><br><small>{{
-                                            Str::limit($page->page->description, 50, '...')
+                                            Str::limit($section2[2]->page->description, 50, '...')
                                             }}</small></h2>
                                 </div>
                                 @endif
@@ -67,7 +67,7 @@
                                     <h2><a
                                             href="/donate/{{ $section2[3]->page->id }}/{{ Str::slug($section2[3]->page->title) }}">{{
                                             $section2[3]->page->title }}</a><br><small>{{
-                                            Str::limit($page->page->description, 50, '...')
+                                            Str::limit($section2[3]->page->description, 50, '...')
                                             }}</small></h2>
                                 </div>
                                 @endif
@@ -79,7 +79,7 @@
                                     <h2><a
                                             href="/donate/{{ $section2[4]->page->id }}/{{ Str::slug($section2[4]->page->title) }}">{{
                                             $section2[4]->page->title }}</a><br><small>{{
-                                            Str::limit($page->page->description, 50, '...')
+                                            Str::limit($section2[4]->page->description, 50, '...')
                                             }}</small></h2>
                                 </div>
                                 @endif
@@ -91,7 +91,7 @@
                                     <h2><a
                                             href="/donate/{{ $section2[5]->page->id }}/{{ Str::slug($section2[5]->page->title) }}">{{
                                             $section2[5]->page->title }}</a><br><small>{{
-                                            Str::limit($page->page->description, 50, '...')
+                                            Str::limit($section2[5]->page->description, 50, '...')
                                             }}</small></h2>
                                 </div>
                                 @endif
