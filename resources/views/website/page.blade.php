@@ -20,7 +20,44 @@
                         </div>
                     </div>
                     @endif
-                    <img src="{{ $page->image->getUrl() }}" alt="{{ $page->title }}" class="img-fluid">
+                    @if ($page->image)
+                    <img src="{{ $page->image ? $page->image->getUrl() : '' }}" alt="{{ $page->title }}" class="img-fluid">
+                    @else
+                    <div class="card">
+                        <div class="card-header">
+                            Enviar pedido
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label>Nome</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Nome da associação</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Número de contribuinte</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Telefone</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Mensagem</label>
+                                <textarea class="form-control"></textarea>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-primary">Enviar</button>
+                        </div>
+                    </div>
+                    @endif
                     @if ($page->type == 2)
                     <button class="btn btn-primary btn-lg mt-5" data-bs-toggle="modal" data-bs-target="#stars">Começar a
                         jogar</button>
@@ -28,6 +65,9 @@
                 </div>
                 <div class="ps-md-5 mt-4 mt-md-0">
                     {!! $page->text !!}
+                    @if (!$page->image)
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2288.4694064487894!2d-8.608672125218574!3d41.148722710767146!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd2464e5442044b5%3A0xe7d95debd71f271!2sR.%20de%20Santa%20Catarina%20286%2C%204000-011%20Porto!5e1!3m2!1spt-PT!2spt!4v1701862009322!5m2!1spt-PT!2spt" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    @endif
                 </div>
             </div>
 
