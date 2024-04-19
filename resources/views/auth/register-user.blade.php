@@ -38,19 +38,6 @@
                     <div class="form-group">
                         <input id="email" type="email"
                             class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" required
-                            autocomplete="email" autofocus placeholder="Entidade beneficiária" name="email"
-                            value="{{ old('email', null) }}">
-
-                        @if($errors->has('email'))
-                        <div class="invalid-feedback">
-                            {{ $errors->first('email') }}
-                        </div>
-                        @endif
-                    </div>
-
-                    <div class="form-group">
-                        <input id="email" type="email"
-                            class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" required
                             autocomplete="email" autofocus placeholder="Contacto telefónico" name="email"
                             value="{{ old('email', null) }}">
 
