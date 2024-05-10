@@ -5,6 +5,12 @@
                 href="{{ $link->page ? '/donate/' . $link->page->id . '/' . Str::slug($link->page->title) : $link->link }}">{{
                 $link->name }}</a></li>
         @endforeach
+        <li><a href="/marketplace">Marketplace<span class="badge text-bg-secondary" style="
+            font-size: 10px;
+            position: absolute;
+            right: -15px;
+            top: -5px;
+        ">Novo</span></a></li>
         @auth
         <li>
             <a href="/admin">Dashboard</a>
@@ -26,8 +32,8 @@
             <a href="/admin">Login</a>
         </li>
         @endauth
-        
-        
+
+
     </ul>
 </nav><!-- .navbar -->
 <form id="logoutform" action="{{ route('logout') }}" method="POST" style="display: none;">

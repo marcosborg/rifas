@@ -4,6 +4,8 @@ Route::prefix('/')->group(function () {
     Route::get('donate/{page_id}/{slug}', 'WebsiteController@page');
 });
 
+Route::get('marketplace', 'MarketplaceController@index');
+
 Route::prefix('games')->group(function () {
     Route::get('getActiveGames', 'GamesController@getActiveGames');
 });
