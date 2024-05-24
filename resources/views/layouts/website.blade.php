@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Causas.net</title>
+    <title>@lang('panel.site_title')</title>
     <meta content="Campanhas de angariação de fundos realizadas através da venda de rifas" name="description">
 
     <!-- Favicons -->
@@ -43,7 +43,7 @@
         <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
             <a href="/" class="logo d-flex align-items-center">
-                <img src="{{ url('assets/logo5-horizontal.svg') }}" width="200">
+                <img src="{{ url('assets/logo7-horizontal.svg') }}" width="200">
             </a>
 
             <x-navbar />

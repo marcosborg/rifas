@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'site_title' => 'Causas.net',
+    'site_title' => 'CausasApp',
 ];
