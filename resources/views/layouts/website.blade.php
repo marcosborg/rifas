@@ -43,7 +43,7 @@
         <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
             <a href="/" class="logo d-flex align-items-center">
-                <img src="{{ url('assets/logo7-horizontal.svg') }}" width="200">
+                <img src="{{ url('assets/logo7-horizontal.svg') }}" width="300">
             </a>
 
             <x-navbar />
