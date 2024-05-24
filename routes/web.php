@@ -1,4 +1,5 @@
 <?php
+
 Route::prefix('/')->group(function () {
     Route::get('/', 'WebsiteController@index');
     Route::get('donate/{page_id}/{slug}', 'WebsiteController@page');
@@ -146,12 +147,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::post('products/media', 'ProductController@storeMedia')->name('products.storeMedia');
     Route::post('products/ckmedia', 'ProductController@storeCKEditorImages')->name('products.storeCKEditorImages');
     Route::resource('products', 'ProductController');
-
-    // Company
-    Route::delete('companies/destroy', 'CompanyController@massDestroy')->name('companies.massDestroy');
-    Route::post('companies/media', 'CompanyController@storeMedia')->name('companies.storeMedia');
-    Route::post('companies/ckmedia', 'CompanyController@storeCKEditorImages')->name('companies.storeCKEditorImages');
-    Route::resource('companies', 'CompanyController');
 
     Route::get('system-calendar', 'SystemCalendarController@index')->name('systemCalendar');
 });
