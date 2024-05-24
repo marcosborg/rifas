@@ -425,6 +425,18 @@
                         </ul>
                     </li>
                 @endcan
+                @can('company_access')
+                    <li class="nav-item">
+                        <a href="{{ route("admin.companies.index") }}" class="nav-link {{ request()->is("admin/companies") || request()->is("admin/companies/*") ? "active" : "" }}">
+                            <i class="fa-fw nav-icon fas fa-building">
+
+                            </i>
+                            <p>
+                                {{ trans('cruds.company.title') }}
+                            </p>
+                        </a>
+                    </li>
+                @endcan
                 <li class="nav-item">
                     <a href="{{ route("admin.systemCalendar") }}" class="nav-link {{ request()->is("admin/system-calendar") || request()->is("admin/system-calendar/*") ? "active" : "" }}">
                         <i class="fas fa-fw fa-calendar nav-icon">
