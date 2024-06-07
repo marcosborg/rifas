@@ -19,4 +19,9 @@ class MarketplaceController extends Controller
 
         return view('website.marketplace.index', compact('product_categories', 'companies', 'products'));
     }
+
+    public function registerSalesman()
+    {
+        return view('website.marketplace.register');
+    }
 }

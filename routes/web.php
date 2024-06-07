@@ -3,8 +3,12 @@ Route::prefix('/')->group(function () {
     Route::get('/', 'WebsiteController@index');
     Route::get('donate/{page_id}/{slug}', 'WebsiteController@page');
 });
+Route::prefix('marketplace')->group(function () {
+    Route::get('/', 'MarketplaceController@index');
+    Route::get('register-salesman', 'MarketplaceController@registerSalesman');
+});
 
-Route::get('marketplace', 'MarketplaceController@index');
+
 
 Route::prefix('games')->group(function () {
     Route::get('getActiveGames', 'GamesController@getActiveGames');
@@ -25,7 +29,7 @@ Route::get('/home', function () {
 
 Auth::routes();
 
-Route::get('register-user', function() {
+Route::get('register-user', function () {
     return view('auth.register-user');
 });
 
